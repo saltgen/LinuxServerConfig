@@ -244,7 +244,7 @@ Step 13.2: Set up the Flask application
 
 sudo nano /var/www/FlaskApp/FlaskApp/flaskapp.wsgi
 
-'''
+```
 
  #!/usr/bin/python
 import sys
