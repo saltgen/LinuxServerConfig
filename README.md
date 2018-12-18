@@ -198,7 +198,7 @@ Step 13.1: Set up and enable a virtual host
 ```sh
     sudo nano /etc/apache2/sites-available/FlaskApp.conf
 ```
-- add the following lines to configure the virtual host:
+- Add the following lines to configure the virtual host:
 
 ```sh
 
@@ -238,7 +238,7 @@ sudo service apache2 reload.
 
 Step 13.2: Set up the Flask application
 
-- Create /var/www/FlaskApp/FlaskApp/flaskapp.wsgi file add the following lines:
+- Create /var/www/FlaskApp/FlaskApp/flaskapp.wsgi file by typing,
 
 ```sh
 
@@ -246,6 +246,10 @@ sudo nano /var/www/FlaskApp/FlaskApp/flaskapp.wsgi
 
 ```
 
+- Add the following lines:
+
+
+```sh
  #!/usr/bin/python
 import sys
 import logging
@@ -254,14 +258,15 @@ sys.path.insert(0,"/var/www/html/FlaskApp/")
 
 from FlaskApp import app as application
 application.secret_key = 'Add your secret key'
+```
 
 
-Restart Apache: sudo service apache2 restart.
+- Restart Apache: sudo service apache2 restart.
 
 Step 13.3: Set up the database schema and populate the database
 
-python database_setup.py
-python lotsofmenus.py
+* python database_setup.py
+* python lotsofmenus.py
 
 Step 13.4: Disable the default Apache site
 
@@ -317,7 +322,7 @@ sudo service sshd restart
 * [How To Install the Apache Web Server on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-16-04)
 
 * Youtube - [Setting up Flask on a Digitalocean Droplet](https://www.youtube.com/watch?v=bMEAtCuFoiw)
-* [Disable root login](https://mediatemple.net/community/products/dv/204643810/how-do-i-disable-ssh-login-for-the-root-user)
+* [How to disable SSH login for root user](https://mediatemple.net/community/products/dv/204643810/how-do-i-disable-ssh-login-for-the-root-user)
 * Thanks to @aviaryan on GitHub for the README reference
 
 
