@@ -128,6 +128,7 @@ sudo dpkg-reconfigure tzdata
 Current default time zone: 'Etc/UTC'
 Local time is now:      Sat Jul 15 04:50:15 UTC 2017.
 Universal Time is now:  Sat Jul 15 04:50:15 UTC 2017.
+```
 
 10. Install and configure Apache to serve a Python mod_wsgi application.
 
@@ -176,14 +177,14 @@ sudo -u postgres psql
 
 - Then when inside psql shell, run the following.
 
-```sql
+```sh
 create user catalog with password 'password';
 create database catalog with owner catalog;
 ```
 
 - Then exit psql shell with the following command.
 
-```sql
+```sh
 \q
 ```
 
