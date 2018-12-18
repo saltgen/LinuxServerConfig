@@ -3,7 +3,7 @@
 #  Project: Linux Server Configuration
 
 
-This page explains how to secure and set up a Linux distribution on a virtual machine, install and configure a web and database server to host a web application.
+This page explains how to set up and secure a Linux distribution/OS on a virtual machine, install and configure a web and database server to host a web application.
  
 - The Linux distribution is [Ubuntu](https://www.ubuntu.com/download/server) 16.04 LTS.
 - The virtual private server is [Digital Ocean](https://digitalocean.com).
@@ -33,7 +33,7 @@ sudo apt-get upgrade
 
 4. Change the SSH port from 22 to 2200. Make sure to configure the firewall to allow it.
 
-Open ssh config in `nano`.
+- Open ssh config in `nano`.
 
 ```sh
 sudo nano /etc/ssh/sshd_config
