@@ -39,7 +39,7 @@ sudo apt-get upgrade
 sudo nano /etc/ssh/sshd_config
 ```
 
-Locate "Port 22" in that file. Change it to "Port 2200".
+- Locate "Port 22" in that file. Change it to "Port 2200".
 
 Restart ssh service.
 
@@ -55,7 +55,7 @@ sudo ufw allow 80
 sudo ufw allow 123
 ```
 
-Then enable ufw.
+- Enable ufw(Uncomplicated Firewall).
 
 ```sh
 sudo ufw enable
@@ -66,7 +66,7 @@ Check the status/Rules of ufw firewall
 sudo ufw status
 ```
 
-Now ssh port has been changed to 2200. Try exiting the ssh connection and re-connecting with the following command.
+- Now ssh port has been changed to 2200. Try exiting the ssh connection and re-connecting with the following command.
 
 ```sh
 ssh grader@142.93.208.96 -p 2200 -i /home/USER_FOLDER/.ssh/grader
@@ -88,14 +88,15 @@ sudo usermod -aG sudo grader
 
 8. Create an SSH key pair for `grader` using the ssh-keygen tool
 
-We will now have to setup a ssh key-pair for grader.
+- We will now have to setup a ssh key-pair for grader.
 
-Login as grader, ssh grader@142.93.208.96 -p 2200 -i /home/USER_FOLDER/.ssh/grader
-Don't give a password this time as ssh keys are themselves meant to be credentials so you can say that they are themselves passwords.
+- Login as grader, ssh grader@142.93.208.96 -p 2200 -i /home/USER_FOLDER/.ssh/grader
 
-Copy the contents of `grader.pub` file.
+- Don't give a password this time as ssh keys are themselves meant to be credentials so you can say that they are themselves passwords.
 
-On the server terminal, run -
+- Copy the contents of `grader.pub` file.
+
+- On the server terminal, run -
 
 ```sh
 ssh grader@142.93.208.96 -p 2200 -i /home/USER_FOLDER/.ssh/grader
@@ -113,15 +114,15 @@ sudo service sshd restart
 
 9. Configure the local timezone to UTC.
 
-To configure timezone, run the following command.
+- To configure timezone, run the following command.
 
 ```sh
 sudo dpkg-reconfigure tzdata
 ```
 
-Select "None of the above" and then select UTC.
+- Select "None of the above" and then select UTC.
 
-When done, you should see something like this in the terminal.
+- When done, you should see something like this in the terminal.
 
 ```sh
 Current default time zone: 'Etc/UTC'
@@ -130,13 +131,13 @@ Universal Time is now:  Sat Jul 15 04:50:15 UTC 2017.
 
 10. Install and configure Apache to serve a Python mod_wsgi application.
 
-To serve Python using Apache and mod_wsgi, install the following components.
+- To serve Python using Apache and mod_wsgi, install the following components.
 
 ```sh
 sudo apt-get install apache2 libapache2-mod-wsgi python-dev
 
 
-Then start apache service.
+- Then start apache service.
 
 ```sh
 sudo service apache2 restart
@@ -144,15 +145,15 @@ sudo service apache2 restart
 
 11. Install and configure PostgreSQL.
 
-   - Create a new database user named `catalog` that has limited permissions to your `catalog` application database.
+- Create a new database user named `catalog` that has limited permissions to your `catalog` application database.
 
-Install postgresql as follows
+- Install postgresql as follows
 
 ```sh
 sudo apt-get install postgresql
 ```
 
-Now to create `catalog` database, run the following to get into psql shell.
+- Now to create `catalog` database, run the following to get into psql shell.
 
 ```sh
 sudo -u postgres psql
@@ -160,26 +161,26 @@ sudo -u postgres psql
 
 ## Step 12:
 
-Install postgresql as follows
+- Install postgresql as follows
 
 ```sh
 sudo apt-get install postgresql
 ```
 
-Now to create `catalog` database, run the following to get into psql shell.
+- Now to create `catalog` database, run the following to get into psql shell.
 
 ```sh
 sudo -u postgres psql
 ```
 
-Then when inside psql shell, run the following.
+- Then when inside psql shell, run the following.
 
 ```sql
 create user catalog with password 'password';
 create database catalog with owner catalog;
 ```
 
-Then exit psql shell with the following command.
+- Then exit psql shell with the following command.
 
 ```sql
 \q
@@ -190,9 +191,12 @@ Then exit psql shell with the following command.
 
 Step 13.1: Set up and enable a virtual host
 
-    Add the following line in /etc/apache2/mods-enabled/wsgi.conf file
+- Add the following line in /etc/apache2/mods-enabled/wsgi.conf file
 
-    sudo nano /etc/apache2/sites-available/FlaskApp.conf and add the following lines to configure the virtual host:
+```sh
+    sudo nano /etc/apache2/sites-available/FlaskApp.conf
+```
+- add the following lines to configure the virtual host:
 
 <VirtualHost *:80>
                 ServerName 142.93.208.96
@@ -213,19 +217,19 @@ Step 13.1: Set up and enable a virtual host
 </VirtualHost>
 
 
-Enable virtual host: 
+- Enable virtual host: 
 
 ```sh
 sudo a2ensite FlaskApp
 ```
-Reload Apache: 
+- Reload Apache: 
 ```sh
 sudo service apache2 reload.
 ```
 
 Step 13.2: Set up the Flask application
 
-Create /var/www/FlaskApp/FlaskApp/flaskapp.wsgi file add the following lines:
+- Create /var/www/FlaskApp/FlaskApp/flaskapp.wsgi file add the following lines:
 
 ```sh
 sudo nano /var/www/FlaskApp/FlaskApp/flaskapp.wsgi
@@ -250,9 +254,9 @@ python lotsofmenus.py
 
 Step 13.4: Disable the default Apache site
 
-Disable the default Apache site: sudo a2dissite 000-default.conf.
+- Disable the default Apache site: sudo a2dissite 000-default.conf.
 
-Reload Apache: sudo service apache2 reload.
+- Reload Apache: sudo service apache2 reload.
 
 
 Once this is done, enable the site and restart Apache.
@@ -271,20 +275,20 @@ sudo tail /var/log/apache2/error.log
 
 ## Step 14:
 
-To disable root login & password-based login through ssh, open the ssh config file.
+- To disable root login & password-based login through ssh, open the ssh config file.
 
 ```sh
 sudo nano /etc/ssh/sshd_config
 ```
 
-Make changes as shown below.
+- Make changes as shown below.
 
 ```sh
 PermitRootLogin no
 PasswordAuthentication no
 ```
 
-Save the file and restart ssh server.
+- Save the file and restart ssh server.
 
 ```sh
 sudo service sshd restart
