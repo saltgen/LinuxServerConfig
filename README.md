@@ -191,7 +191,7 @@ create database catalog with owner catalog;
 
 ## Step 13: Restaurant Menu CRUD App config
 
-Step 13.1: Set up and enable a virtual host
+### 13.1: Set up and enable a virtual host
 
 - Add the following line in /etc/apache2/mods-enabled/wsgi.conf file
 
@@ -236,7 +236,7 @@ sudo service apache2 reload.
 
 ```
 
-Step 13.2: Set up the Flask application
+### 13.2: Set up the Flask application
 
 - Create /var/www/FlaskApp/FlaskApp/flaskapp.wsgi file by typing,
 
@@ -263,12 +263,12 @@ application.secret_key = 'Add your secret key'
 
 - Restart Apache: sudo service apache2 restart.
 
-Step 13.3: Set up the database schema and populate the database
+### 13.3: Set up the database schema and populate the database
 
 * python database_setup.py
 * python lotsofmenus.py
 
-Step 13.4: Disable the default Apache site
+### 13.4: Disable the default Apache site
 
 - Disable the default Apache site: sudo a2dissite 000-default.conf.
 
