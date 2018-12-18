@@ -198,6 +198,8 @@ Step 13.1: Set up and enable a virtual host
 ```
 - add the following lines to configure the virtual host:
 
+```sh
+
 <VirtualHost *:80>
                 ServerName 142.93.208.96
                 ServerAdmin sdnirvana94@gmail.com
@@ -215,16 +217,20 @@ Step 13.1: Set up and enable a virtual host
                 LogLevel warn
                 CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
-
+'''
 
 - Enable virtual host: 
 
 ```sh
+
 sudo a2ensite FlaskApp
+
 ```
 - Reload Apache: 
+
 ```sh
 sudo service apache2 reload.
+
 ```
 
 Step 13.2: Set up the Flask application
@@ -232,7 +238,9 @@ Step 13.2: Set up the Flask application
 - Create /var/www/FlaskApp/FlaskApp/flaskapp.wsgi file add the following lines:
 
 ```sh
+
 sudo nano /var/www/FlaskApp/FlaskApp/flaskapp.wsgi
+
 '''
 
  #!/usr/bin/python
@@ -262,8 +270,10 @@ Step 13.4: Disable the default Apache site
 Once this is done, enable the site and restart Apache.
 
 ```sh
+
 sudo a2ensite FlaskApp  # enable site
 sudo service apache2 reload
+
 ```
 
 The server should be live now. Visit the IP to check (http://142.93.208.96). If an error occurs, check the logs.
