@@ -219,7 +219,8 @@ Step 13.1: Set up and enable a virtual host
                 LogLevel warn
                 CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
-'''
+
+```
 
 - Enable virtual host: 
 
