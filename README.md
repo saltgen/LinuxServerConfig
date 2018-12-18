@@ -135,6 +135,7 @@ Universal Time is now:  Sat Jul 15 04:50:15 UTC 2017.
 
 ```sh
 sudo apt-get install apache2 libapache2-mod-wsgi python-dev
+
 ```
 
 - Then start apache service.
