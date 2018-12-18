@@ -41,7 +41,7 @@ sudo nano /etc/ssh/sshd_config
 
 - Locate "Port 22" in that file. Change it to "Port 2200".
 
-Restart ssh service.
+- Restart ssh service.
 
 ```sh
 sudo service ssh restart
@@ -60,7 +60,7 @@ sudo ufw allow 123
 ```sh
 sudo ufw enable
 ```
-Check the status/Rules of ufw firewall
+- Check the status/Rules of ufw firewall
 
 ```sh
 sudo ufw status
@@ -80,7 +80,7 @@ sudo adduser grader
 
 7. Give `grader` the permission to sudo.
 
-To give `grader` sudo permission.
+- To give `grader` sudo permission.
 
 ```sh
 sudo usermod -aG sudo grader
@@ -106,7 +106,7 @@ nano .ssh/authorized_keys
 # paste the contents and save the file
 chmod 644 .ssh/authorized_keys
 ```
-Restart the ssh service.
+- Restart the ssh service.
 
 ```sh
 sudo service sshd restart
@@ -135,7 +135,7 @@ Universal Time is now:  Sat Jul 15 04:50:15 UTC 2017.
 
 ```sh
 sudo apt-get install apache2 libapache2-mod-wsgi python-dev
-
+```
 
 - Then start apache service.
 
