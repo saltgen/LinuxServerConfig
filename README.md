@@ -1,6 +1,6 @@
 
 
-#  Peoject: Linux Server Configuration
+#  Project: Linux Server Configuration
 
 
 This page explains how to secure and set up a Linux distribution on a virtual machine, install and configure a web and database server to host a web application.
